@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>About Paradigm</title>
+<style>
+  :root{
+    --navy:#0B1E38; --navy-2:#122A4D; --gold:#C9A227; --gold-soft:#E8D28A;
+    --ink:#0B1E38; --paper:#F7F5EF; --white:#FFFFFF; --muted:#5B6B85;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);}
+  .page{max-width:1040px;margin:0 auto;background:var(--white);}
+  a{color:inherit;text-decoration:none;}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:16px 56px;background:var(--navy);}
+  .nav .logo{display:flex;align-items:center;gap:10px;color:var(--white);font-weight:800;letter-spacing:1px;font-size:18px;}
+  .nav .logo img{height:38px;width:38px;object-fit:contain;display:block;}
+  .nav .logo span{color:var(--gold);}
+  .nav .links{display:flex;gap:26px;font-size:13px;color:#CBD5E8;font-weight:600;}
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--white);padding:70px 56px 80px;text-align:center;position:relative;overflow:hidden;}
+  .hero::after{content:"";position:absolute;right:-90px;top:-90px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.22),transparent 70%);}
+  .hero .eyebrow{color:var(--gold);font-weight:800;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px;}
+  .hero h1{margin:0 0 18px;font-size:36px;}
+  .hero p{color:#D8E1F0;font-size:16px;max-width:660px;margin:0 auto;line-height:1.6;}
+  section{padding:64px 56px;}
+  h2.h-title{font-size:26px;color:var(--navy);margin:0 0 26px;text-align:center;}
+  .flow{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin:30px 0 10px;}
+  .flow-node{background:var(--navy);color:var(--gold-soft);font-weight:700;font-size:13px;padding:10px 18px;border-radius:999px;}
+  .flow-arrow{color:var(--gold);font-weight:900;font-size:16px;}
+  .perspective-quote{background:var(--paper);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:26px 30px;font-size:17px;font-style:italic;color:var(--navy);line-height:1.6;text-align:center;max-width:700px;margin:0 auto 30px;}
+  .negatives{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px;}
+  .neg{text-align:center;font-size:13px;color:var(--muted);background:var(--paper);border-radius:8px;padding:12px;}
+
+  /* founder */
+  .founder-wrap{display:grid;grid-template-columns:170px 1fr;gap:32px;align-items:start;}
+  .founder-badge{width:170px;height:170px;border-radius:16px;background:linear-gradient(135deg,var(--navy),var(--navy-2));display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:800;font-size:42px;}
+  .founder-title{font-size:20px;font-weight:800;color:var(--navy);margin:0 0 6px;}
+  .founder-sub{color:var(--gold);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+  .founder-text{font-size:14.5px;color:#374357;line-height:1.6;margin-bottom:18px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{background:var(--paper);color:var(--navy);border:1.5px solid var(--gold);font-size:12px;font-weight:600;padding:6px 14px;border-radius:999px;}
+  .closing{text-align:center;font-size:15.5px;color:var(--navy);font-weight:700;margin-top:28px;max-width:640px;margin-left:auto;margin-right:auto;line-height:1.6;}
+
+  footer{text-align:center;padding:22px;font-size:11px;color:var(--muted);background:var(--paper);}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="nav">
+    <div class="logo"><img src="assets/pcorp-logo-white-transparent.png" alt="PCORP logo" />PARADIGM<span>.</span></div>
+    <div class="links"><a href="paradigm-landing.html">Home</a><a href="paradigm-services.html">Services</a><a href="#founder">Founder</a><a href="paradigm-contact.html">Contact</a></div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">About Paradigm</div>
+    <h1>We build the systems that turn expertise into impact.</h1>
+    <p>Paradigm is a digital strategy and innovation consultancy founded by Modou Sarr, combining digital growth, AI automation, e-commerce, financial inclusion and institutional strategy. The firm works at the intersection of strategy and implementation — helping organizations translate ambitious objectives into digital systems that people can actually use.</p>
+  </div>
+
+  <section>
+    <h2 class="h-title">Our Perspective</h2>
+    <div class="perspective-quote">"Technology isn't the transformation. Adoption is."</div>
+    <div class="negatives">
+      <div class="neg">Organizations can purchase software.</div>
+      <div class="neg">They can build websites.</div>
+      <div class="neg">They can deploy AI.</div>
+      <div class="neg">They can launch platforms.</div>
+    </div>
+    <div class="perspective-quote" style="font-style:normal;font-size:15px;">But none of those things create value unless people actually use them, trust them and turn them into productive behaviour. That is why Paradigm focuses on the space between:</div>
+    <div class="flow">
+      <div class="flow-node">Strategy</div><div class="flow-arrow">→</div>
+      <div class="flow-node">Technology</div><div class="flow-arrow">→</div>
+      <div class="flow-node">People</div><div class="flow-arrow">→</div>
+      <div class="flow-node">Adoption</div><div class="flow-arrow">→</div>
+      <div class="flow-node">Results</div>
+    </div>
+  </section>
+
+  <section id="founder" style="background:var(--paper);">
+    <h2 class="h-title">Built across technology, development and commerce</h2>
+    <div class="founder-wrap">
+      <div class="founder-badge">MS</div>
+      <div>
+        <div class="founder-title">Modou Sarr</div>
+        <div class="founder-sub">Founder, Paradigm</div>
+        <div class="founder-text">Modou Sarr brings more than 15 years of experience across digital strategy, development, financial inclusion, communications and technology. His experience spans the World Bank, UNDP, government institutions, SMEs and entrepreneurial ventures, combining formal legal and international-development training with hands-on digital product development.</div>
+        <div class="chips">
+          <span class="chip">Digital transformation</span>
+          <span class="chip">Financial inclusion</span>
+          <span class="chip">Mobile money</span>
+          <span class="chip">E-commerce</span>
+          <span class="chip">AI automation</span>
+          <span class="chip">Digital marketing</span>
+          <span class="chip">Policy &amp; development</span>
+          <span class="chip">Research &amp; intelligence</span>
+          <span class="chip">Content &amp; communications</span>
+        </div>
+      </div>
+    </div>
+    <div class="closing">That breadth isn't accidental.<br/>It is the foundation of Paradigm's approach.</div>
+  </section>
+
+  <footer>PARADIGM — NETWORK PERFORMANCE &amp; DIGITAL GROWTH · pcorpnet.com</footer>
+</div>
+</body>
+</html>

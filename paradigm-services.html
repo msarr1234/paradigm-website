@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Paradigm — Services</title>
+<style>
+  :root{
+    --navy:#0B1E38; --navy-2:#122A4D; --gold:#C9A227; --gold-soft:#E8D28A;
+    --ink:#0B1E38; --paper:#F7F5EF; --white:#FFFFFF; --muted:#5B6B85;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);}
+  .page{max-width:1040px;margin:0 auto;background:var(--white);}
+  a{color:inherit;text-decoration:none;}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:16px 56px;background:var(--navy);}
+  .nav .logo{display:flex;align-items:center;gap:10px;color:var(--white);font-weight:800;letter-spacing:1px;font-size:18px;}
+  .nav .logo img{height:38px;width:38px;object-fit:contain;display:block;}
+  .nav .logo span{color:var(--gold);}
+  .nav .links{display:flex;gap:26px;font-size:13px;color:#CBD5E8;font-weight:600;}
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--white);padding:64px 56px 74px;text-align:center;position:relative;overflow:hidden;}
+  .hero::after{content:"";position:absolute;left:-90px;bottom:-90px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.2),transparent 70%);}
+  .hero .eyebrow{color:var(--gold);font-weight:800;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px;}
+  .hero h1{margin:0 0 18px;font-size:34px;}
+  .hero p{color:#D8E1F0;font-size:15.5px;max-width:660px;margin:0 auto;line-height:1.6;}
+  section{padding:56px 56px;}
+  section.alt{background:var(--paper);}
+  h2.h-title{font-size:26px;color:var(--navy);margin:0 0 10px;}
+  h2.h-title.center{text-align:center;}
+  p.h-sub{color:var(--muted);font-size:14.5px;line-height:1.6;max-width:680px;margin-bottom:8px;}
+
+  .service-card{border:1.5px solid #E7E2D6;border-radius:14px;margin-bottom:26px;overflow:hidden;}
+  .service-head{background:var(--navy);color:var(--white);padding:20px 28px;display:flex;justify-content:space-between;align-items:baseline;}
+  .service-head .tag{color:var(--gold);font-weight:800;font-size:11px;letter-spacing:2px;text-transform:uppercase;}
+  .service-head h3{margin:4px 0 0;font-size:19px;}
+  .service-body{padding:22px 28px;background:var(--white);}
+  .service-body .lede{font-style:italic;color:var(--navy);font-size:13.5px;margin-bottom:14px;}
+  .bullets{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;}
+  .bullets div{font-size:13px;color:#374357;display:flex;gap:8px;align-items:flex-start;}
+  .bullets div::before{content:"▸";color:var(--gold);font-weight:900;flex-shrink:0;}
+  .sub-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:14px;}
+  .sub-card{background:var(--paper);border-radius:8px;padding:10px 12px;font-size:11.5px;color:#374357;}
+  .sub-card b{display:block;color:var(--navy);font-size:12px;margin-bottom:3px;}
+  .outcome{background:var(--paper);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:10px 16px;font-size:13px;font-weight:700;color:var(--navy);}
+  .flow-mini{display:flex;gap:6px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);align-items:center;margin-bottom:14px;}
+  .flow-mini span.node{background:var(--navy);color:var(--gold-soft);padding:4px 10px;border-radius:999px;font-weight:700;}
+
+  /* service model */
+  .model-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+  .model-card{background:var(--navy);color:var(--white);border-radius:14px;padding:26px 22px;text-align:center;}
+  .model-card .step{color:var(--gold);font-weight:800;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+  .model-card h3{margin:0 0 10px;font-size:19px;}
+  .model-card p{color:#D8E1F0;font-size:13px;line-height:1.55;margin-bottom:14px;}
+  .model-card .output{background:rgba(255,255,255,.08);border-radius:8px;padding:8px 10px;font-size:11.5px;color:var(--gold-soft);font-weight:700;}
+
+  /* differentiator */
+  .diff-flow{display:flex;flex-direction:column;align-items:center;gap:4px;margin:24px 0;}
+  .diff-node{background:var(--paper);border:1.5px solid var(--gold-soft);border-radius:8px;padding:8px 24px;font-size:12.5px;font-weight:700;color:var(--navy);}
+  .diff-down{color:var(--gold);font-weight:900;}
+  .two-col-quote{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+  .two-col-quote div{background:var(--paper);border-radius:10px;padding:16px 20px;font-size:13.5px;color:#374357;line-height:1.55;}
+
+  footer{text-align:center;padding:22px;font-size:11px;color:var(--muted);background:var(--paper);}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="nav">
+    <div class="logo"><img src="assets/pcorp-logo-white-transparent.png" alt="PCORP logo" />PARADIGM<span>.</span></div>
+    <div class="links"><a href="paradigm-landing.html">Home</a><a href="paradigm-about.html">About</a><a href="#model">Engagement</a><a href="paradigm-contact.html">Contact</a></div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">Our Services</div>
+    <h1>Build a higher-performing independent network.</h1>
+    <p>Your network already contains the expertise, relationships and market access you need. The question is whether your organization has the systems to turn that potential into measurable performance. Paradigm provides the strategy, digital infrastructure and AI-enabled systems required to help distributed professional networks attract opportunities, develop relationships and convert more of them into business.</p>
+  </div>
+
+  <section>
+    <div class="service-card">
+      <div class="service-head">
+        <div><div class="tag">Service 01</div><h3>Network Performance &amp; Risk Management</h3></div>
+      </div>
+      <div class="service-body">
+        <div class="lede">Reduce the commercial risk of an underperforming network.</div>
+        <p class="h-sub">Independent networks introduce flexibility — but also create visibility, consistency and performance challenges. We help organizations identify where value is being lost across the network and design interventions that improve performance.</p>
+        <div class="bullets">
+          <div>Map your network's commercial journey</div>
+          <div>Identify pipeline leakage</div>
+          <div>Assess member/agent performance barriers</div>
+          <div>Identify underutilized network capacity</div>
+          <div>Design performance frameworks</div>
+          <div>Establish KPIs and reporting</div>
+          <div>Improve lead handoff and follow-up</div>
+          <div>Identify operational bottlenecks</div>
+        </div>
+        <div class="outcome">Outcome: More visibility. More consistency. Less revenue leakage.</div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-head">
+        <div><div class="tag">Service 02</div><h3>Pipeline &amp; Revenue Enablement</h3></div>
+      </div>
+      <div class="service-body">
+        <div class="lede">Give your network a system for turning relationships into opportunities.</div>
+        <p class="h-sub">Many independent professionals are excellent at what they do but lack a consistent commercial process. We build the infrastructure around them.</p>
+        <div class="sub-cards">
+          <div class="sub-card"><b>Lead Generation</b>Content, campaigns, landing pages, digital acquisition.</div>
+          <div class="sub-card"><b>Qualification</b>Turning enquiries into structured opportunities.</div>
+          <div class="sub-card"><b>Nurturing</b>Email, CRM and AI-assisted follow-up systems.</div>
+          <div class="sub-card"><b>Conversion</b>Sales journeys, proposals, CTAs, optimization.</div>
+          <div class="sub-card"><b>Reactivation</b>Finding value in dormant leads and relationships.</div>
+        </div>
+        <div class="outcome">Outcome: A repeatable path from prospect → opportunity → client.</div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-head">
+        <div><div class="tag">Service 03</div><h3>AI &amp; Automation for Distributed Networks</h3></div>
+      </div>
+      <div class="service-body">
+        <div class="lede">Turn repetitive network management into intelligent workflows.</div>
+        <p class="h-sub">AI shouldn't simply generate content. It should remove friction from the entire commercial process. We design AI-assisted workflows that can support:</p>
+        <div class="bullets">
+          <div>Lead research</div><div>Prospect qualification</div>
+          <div>Content creation</div><div>Personalized outreach</div>
+          <div>Follow-up</div><div>CRM updates</div>
+          <div>Reporting</div><div>Proposal preparation</div>
+          <div>Knowledge management</div><div>Marketing operations &amp; internal comms</div>
+        </div>
+        <div class="outcome">The goal isn't to replace your network. It's to make your network more productive. — proven in-house: our own AI content workflow cut turnaround from five days to under one day.</div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-head">
+        <div><div class="tag">Service 04</div><h3>Digital Presence &amp; Content Systems</h3></div>
+      </div>
+      <div class="service-body">
+        <div class="lede">Make expertise easier to discover, understand and buy.</div>
+        <p class="h-sub">Independent professionals often possess significant expertise but lack the digital infrastructure required to communicate it effectively. We help organizations create systems that allow their network to communicate consistently without turning every professional into a full-time marketer.</p>
+        <div class="bullets">
+          <div>Digital positioning</div><div>Website &amp; landing-page strategy</div>
+          <div>Content strategy</div><div>Social media systems</div>
+          <div>SEO</div><div>Educational content</div>
+          <div>Campaign development</div><div>Personal-brand frameworks</div>
+          <div>AI-assisted content production</div><div>Conversion-focused digital experiences</div>
+        </div>
+        <div class="outcome">Outcome: More visibility without requiring every network member to reinvent marketing from scratch.</div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-head">
+        <div><div class="tag">Service 05</div><h3>Network Intelligence &amp; Analytics</h3></div>
+      </div>
+      <div class="service-body">
+        <div class="lede">Know what is happening across your network.</div>
+        <p class="h-sub">A distributed network generates enormous amounts of information — but organizations often struggle to turn that information into decisions. We help establish systems for monitoring leads, engagement, conversion, network activity, campaign performance, member performance, customer behaviour, pipeline movement and content performance.</p>
+        <div class="flow-mini">
+          <span class="node">What is happening?</span> → <span class="node">Why is it happening?</span> → <span class="node">Where is value lost?</span> → <span class="node">What next?</span>
+        </div>
+        <div class="outcome">Draws on our ECOWAS early-warning intelligence background — turning distributed, noisy signals into decisions leadership can act on.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <h2 class="h-title center">Digital Transformation &amp; Product Strategy</h2>
+    <p class="h-sub" style="text-align:center;margin:0 auto 24px;">Adjacent capability for organizations developing new digital products, platforms or services.</p>
+    <div class="bullets" style="max-width:760px;margin:0 auto 20px;">
+      <div>Digital product strategy</div><div>E-commerce architecture</div>
+      <div>Payment integration strategy</div><div>Financial inclusion design</div>
+      <div>Digital onboarding</div><div>Platform strategy</div>
+      <div>AI product development</div><div>Workflow design &amp; tech implementation planning</div>
+    </div>
+    <div class="outcome" style="max-width:760px;margin:0 auto;">Currently in practice: designing a national MSME onboarding portal for the World Bank's Tourism Diversification &amp; Resilience Project.</div>
+  </section>
+
+  <section id="model">
+    <h2 class="h-title center">The Service Model</h2>
+    <p class="h-sub" style="text-align:center;margin:0 auto 30px;">Rather than selling hours, we present three engagement modes.</p>
+    <div class="model-grid">
+      <div class="model-card"><div class="step">01 · Diagnose</div><h3>Find the leakage.</h3><p>We assess your network, commercial journey, technology and performance data to identify the highest-value intervention points.</p><div class="output">Output: Network Performance &amp; Risk Assessment</div></div>
+      <div class="model-card"><div class="step">02 · Build</div><h3>Build the system.</h3><p>We design and implement the digital, marketing and AI infrastructure required to address the identified problems.</p><div class="output">Output: Network Growth System</div></div>
+      <div class="model-card"><div class="step">03 · Optimize</div><h3>Make it compound.</h3><p>We monitor performance, test interventions and continuously improve acquisition, nurturing and conversion.</p><div class="output">Output: Continuous Network Growth &amp; Intelligence</div></div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <h2 class="h-title center">Why Paradigm?</h2>
+    <p class="h-sub" style="text-align:center;margin:0 auto 10px;">We understand both sides of the equation.</p>
+    <div class="two-col-quote">
+      <div>We understand the <b>organization</b> trying to manage a network.</div>
+      <div>We understand the <b>independent professional</b> trying to win business.</div>
+    </div>
+    <p class="h-sub" style="text-align:center;margin:0 auto 6px;">That means we don't approach network performance as simply a people problem or a technology problem. It is a <b>systems problem.</b></p>
+    <div class="diff-flow">
+      <div class="diff-node">Clear positioning</div><div class="diff-down">↓</div>
+      <div class="diff-node">Demand generation</div><div class="diff-down">↓</div>
+      <div class="diff-node">Lead capture</div><div class="diff-down">↓</div>
+      <div class="diff-node">Nurturing</div><div class="diff-down">↓</div>
+      <div class="diff-node">Conversion</div><div class="diff-down">↓</div>
+      <div class="diff-node">Delivery</div><div class="diff-down">↓</div>
+      <div class="diff-node">Proof</div><div class="diff-down">↓</div>
+      <div class="diff-node" style="background:var(--navy);color:var(--gold-soft);border-color:var(--navy);">More demand</div>
+    </div>
+    <p class="h-sub" style="text-align:center;margin:0 auto;font-weight:700;color:var(--navy);">Paradigm connects those pieces.</p>
+  </section>
+
+  <footer>PARADIGM — NETWORK PERFORMANCE &amp; DIGITAL GROWTH · pcorpnet.com</footer>
+</div>
+</body>
+</html>

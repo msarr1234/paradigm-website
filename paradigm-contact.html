@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Contact Paradigm</title>
+<style>
+  :root{
+    --navy:#0B1E38; --navy-2:#122A4D; --gold:#C9A227; --gold-soft:#E8D28A;
+    --ink:#0B1E38; --paper:#F7F5EF; --white:#FFFFFF; --muted:#5B6B85;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);}
+  .page{max-width:1040px;margin:0 auto;background:var(--white);}
+  a{color:inherit;text-decoration:none;}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:16px 56px;background:var(--navy);}
+  .nav .logo{display:flex;align-items:center;gap:10px;color:var(--white);font-weight:800;letter-spacing:1px;font-size:18px;}
+  .nav .logo img{height:38px;width:38px;object-fit:contain;display:block;}
+  .nav .logo span{color:var(--gold);}
+  .nav .links{display:flex;gap:26px;font-size:13px;color:#CBD5E8;font-weight:600;}
+  .nav .links a.active{color:var(--gold-soft);}
+
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--white);padding:64px 56px 74px;text-align:center;position:relative;overflow:hidden;}
+  .hero::after{content:"";position:absolute;right:-90px;top:-90px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.22),transparent 70%);}
+  .hero .eyebrow{color:var(--gold);font-weight:800;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px;}
+  .hero h1{margin:0 0 18px;font-size:34px;}
+  .hero p{color:#D8E1F0;font-size:15.5px;max-width:640px;margin:0 auto;line-height:1.6;}
+
+  section{padding:60px 56px;}
+  .contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;}
+
+  .form-card{background:var(--paper);border-radius:16px;padding:34px 34px;}
+  .form-card h2{margin:0 0 6px;font-size:20px;color:var(--navy);}
+  .form-card p.lede{color:var(--muted);font-size:13.5px;margin:0 0 24px;line-height:1.5;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:12px;font-weight:700;color:var(--navy);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;}
+  .field input, .field select, .field textarea{
+    width:100%;padding:11px 14px;border:1.5px solid #DCD6C6;border-radius:8px;font-size:14px;color:var(--ink);
+    background:var(--white);font-family:inherit;
+  }
+  .field textarea{resize:vertical;min-height:90px;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .submit-btn{width:100%;padding:14px;border:none;border-radius:8px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14.5px;cursor:pointer;margin-top:6px;}
+  .form-note{font-size:11.5px;color:var(--muted);text-align:center;margin-top:14px;}
+
+  .info-col{display:flex;flex-direction:column;gap:22px;}
+  .info-card{background:var(--navy);color:var(--white);border-radius:14px;padding:24px 26px;}
+  .info-card .lbl{color:var(--gold);font-weight:800;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+  .info-card .val{font-size:15px;font-weight:700;margin-bottom:2px;}
+  .info-card .sub{font-size:12.5px;color:#CBD5E8;line-height:1.5;}
+  .info-card a{color:var(--gold-soft);}
+
+  .why-list{display:flex;flex-direction:column;gap:10px;}
+  .why-item{background:var(--paper);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:12px 16px;font-size:13px;color:#374357;line-height:1.5;}
+
+  .final-note{text-align:center;padding:0 56px 56px;color:var(--muted);font-size:13.5px;max-width:600px;margin:0 auto;line-height:1.6;}
+
+  footer{text-align:center;padding:22px;font-size:11px;color:var(--muted);background:var(--paper);}
+
+  @media (max-width:720px){ .contact-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="nav">
+    <div class="logo"><img src="assets/pcorp-logo-white-transparent.png" alt="PCORP logo" />PARADIGM<span>.</span></div>
+    <div class="links"><a href="paradigm-landing.html">Home</a><a href="paradigm-services.html">Services</a><a href="paradigm-about.html">About</a><a class="active" href="paradigm-contact.html">Contact</a></div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">Contact</div>
+    <h1>Let's build the system that unlocks your network.</h1>
+    <p>Tell us about your network, your growth objectives and where you believe performance is being lost. We'll follow up to schedule a short diagnostic conversation.</p>
+  </div>
+
+  <section>
+    <div class="contact-grid">
+      <div class="form-card">
+        <h2>Start a Conversation</h2>
+        <p class="lede">A few details help us prepare — no commitment, just a focused first conversation about where your network's performance is leaking.</p>
+        <form>
+          <div class="field-row">
+            <div class="field"><label for="name">Full Name</label><input id="name" type="text" placeholder="Jane Doe" /></div>
+            <div class="field"><label for="org">Organization</label><input id="org" type="text" placeholder="Your organization" /></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="email">Email</label><input id="email" type="email" placeholder="you@organization.com" /></div>
+            <div class="field"><label for="role">Role</label><input id="role" type="text" placeholder="e.g. Head of Partnerships" /></div>
+          </div>
+          <div class="field">
+            <label for="network-type">Network Type</label>
+            <select id="network-type">
+              <option>Independent consultant network</option>
+              <option>Contractor / agent network</option>
+              <option>Sales network</option>
+              <option>Specialist expert network</option>
+              <option>Training / education network</option>
+              <option>Development-sector consultant network</option>
+              <option>Other distributed delivery model</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Where do you believe performance is being lost?</label>
+            <textarea id="message" placeholder="Tell us briefly about your network and where you see the biggest opportunity for improvement..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+          <div class="form-note">We typically respond within 1–2 business days.</div>
+        </form>
+      </div>
+
+      <div class="info-col">
+        <div class="info-card">
+          <div class="lbl">Email</div>
+          <div class="val"><a href="mailto:msarr@pcorpnet.com">msarr@pcorpnet.com</a></div>
+          <div class="sub">Best for detailed enquiries and proposals.</div>
+        </div>
+        <div class="info-card">
+          <div class="lbl">Web</div>
+          <div class="val"><a href="https://pcorpnet.com">pcorpnet.com</a></div>
+          <div class="sub">Learn more about Paradigm's approach and services.</div>
+        </div>
+        <div class="info-card">
+          <div class="lbl">Engagement Model</div>
+          <div class="val">Diagnose → Build → Optimize</div>
+          <div class="sub">Most engagements begin with a Network Performance &amp; Risk Assessment.</div>
+        </div>
+        <div class="why-list">
+          <div class="why-item">15+ years of digital strategy &amp; development experience</div>
+          <div class="why-item">World Bank &amp; UNDP engagements across MSME and financial-inclusion programmes</div>
+          <div class="why-item">400+ merchants and 200+ SMEs onboarded through our own digital platforms</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="final-note">Prefer to talk first? Email us directly and we'll set up a short call to discuss your network, your growth objectives, and where Paradigm can help.</div>
+
+  <footer>PARADIGM — NETWORK PERFORMANCE &amp; DIGITAL GROWTH · pcorpnet.com</footer>
+</div>
+</body>
+</html>

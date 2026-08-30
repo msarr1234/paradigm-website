@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Paradigm — Network Performance & Digital Growth</title>
+<style>
+  :root{
+    --navy:#0B1E38; --navy-2:#122A4D; --gold:#C9A227; --gold-soft:#E8D28A;
+    --ink:#0B1E38; --paper:#F7F5EF; --white:#FFFFFF; --muted:#5B6B85;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);}
+  .page{max-width:1080px;margin:0 auto;background:var(--white);}
+  a{color:inherit;text-decoration:none;}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 40px;background:var(--navy);flex-wrap:wrap;gap:10px;}
+  .nav .logo{display:flex;align-items:center;gap:9px;color:var(--white);font-weight:800;letter-spacing:1px;font-size:17px;}
+  .nav .logo img{height:34px;width:34px;object-fit:contain;display:block;}
+  .nav .logo span{color:var(--gold);}
+  .nav .links{display:flex;gap:16px;font-size:12px;color:#CBD5E8;font-weight:600;flex-wrap:wrap;}
+  .nav .links a.active{color:var(--gold-soft);}
+  .nav-cta{background:var(--gold);color:var(--navy)!important;font-weight:800;font-size:11.5px;padding:8px 16px;border-radius:999px;white-space:nowrap;}
+
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--white);padding:76px 56px 86px;position:relative;overflow:hidden;text-align:center;}
+  .hero::after{content:"";position:absolute;right:-100px;top:-100px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.22),transparent 70%);}
+  .hero::before{content:"";position:absolute;left:-100px;bottom:-120px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.12),transparent 70%);}
+  .hero h1{margin:0 auto 20px;font-size:40px;line-height:1.15;max-width:760px;position:relative;}
+  .hero p.sub{color:#D8E1F0;font-size:16.5px;line-height:1.6;max-width:660px;margin:0 auto 30px;position:relative;}
+  .cta-row{display:flex;gap:16px;justify-content:center;position:relative;}
+  .btn{display:inline-block;padding:13px 26px;border-radius:8px;font-weight:700;font-size:14px;}
+  .btn.gold{background:var(--gold);color:var(--navy);}
+  .btn.outline{border:1.5px solid var(--gold-soft);color:var(--gold-soft);}
+
+  section{padding:60px 56px;}
+  section.alt{background:var(--paper);}
+  .eyebrow{text-align:center;color:var(--gold);font-weight:800;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px;}
+  h2.h-title{font-size:27px;color:var(--navy);margin:0 0 12px;text-align:center;}
+  p.h-sub{text-align:center;color:var(--muted);font-size:15px;max-width:660px;margin:0 auto 30px;line-height:1.6;}
+  .more-link{display:block;text-align:center;margin-top:22px;color:var(--navy);font-weight:800;font-size:13.5px;}
+  .more-link:hover{color:var(--gold);}
+
+  .flow-mini{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin:20px 0 6px;}
+  .flow-node{background:var(--navy);color:var(--gold-soft);padding:8px 16px;border-radius:999px;font-size:12.5px;font-weight:700;}
+  .flow-arrow{align-self:center;color:var(--gold);font-weight:900;}
+
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .svc-card{background:var(--white);border:1.5px solid #E7E2D6;border-radius:12px;padding:20px 18px;}
+  .svc-card .n{color:var(--gold);font-weight:800;font-size:11px;letter-spacing:1.5px;}
+  .svc-card h3{font-size:15px;margin:6px 0 8px;color:var(--navy);}
+  .svc-card p{font-size:12.5px;color:var(--muted);line-height:1.5;margin:0;}
+
+  .proof-wrap{background:var(--navy);border-radius:16px;padding:40px 34px;}
+  .proof-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
+  .proof-card{text-align:center;}
+  .proof-card .num{color:var(--gold);font-size:24px;font-weight:800;display:block;}
+  .proof-card .lbl{color:#CBD5E8;font-size:10.5px;line-height:1.4;margin-top:6px;display:block;}
+
+  .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .who-chip{background:var(--white);border-top:3px solid var(--gold);border-radius:8px;padding:16px 12px;text-align:center;font-size:12.5px;font-weight:700;color:var(--navy);}
+
+  .why-box{background:var(--navy);color:var(--white);border-radius:14px;padding:34px 40px;text-align:center;max-width:720px;margin:0 auto;}
+  .why-box p{font-size:16px;line-height:1.6;color:#D8E1F0;margin:0 0 6px;}
+  .why-box p.strong{color:var(--white);font-weight:700;font-size:17px;}
+
+  .final-cta{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--white);text-align:center;padding:64px 56px;}
+  .final-cta h2{font-size:27px;margin:0 0 12px;}
+  .final-cta p{color:#D8E1F0;font-size:15px;max-width:560px;margin:0 auto 26px;line-height:1.6;}
+
+  footer{text-align:center;padding:22px;font-size:11px;color:var(--muted);background:var(--paper);}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="nav">
+    <div class="logo"><img src="assets/pcorp-logo-black-transparent.png" alt="PCORP logo" />PARADIGM<span>.</span></div>
+    <div class="links">
+      <a class="active" href="paradigm-home.html">Home</a>
+      <a href="paradigm-about.html">About</a>
+      <a href="paradigm-services.html">Services</a>
+      <a href="paradigm-solutions.html">Solutions</a>
+      <a href="paradigm-approach.html">Approach</a>
+      <a href="paradigm-work.html">Work</a>
+      <a href="paradigm-insights.html">Insights</a>
+    </div>
+    <a class="nav-cta" href="paradigm-contact.html">Talk to Paradigm</a>
+  </div>
+
+  <div class="hero">
+    <h1>Turn Your Independent Network Into a Growth Engine</h1>
+    <p class="sub">Paradigm helps organizations improve the performance of independent consultants, contractors, agents and other distributed professional networks through digital growth, AI-enabled systems and network intelligence.</p>
+    <div class="cta-row">
+      <a class="btn gold" href="paradigm-services.html">Explore Our Services</a>
+      <a class="btn outline" href="paradigm-contact.html">Talk to Paradigm</a>
+    </div>
+  </div>
+
+  <section>
+    <div class="eyebrow">The Challenge</div>
+    <h2 class="h-title">The Network Performance Challenge</h2>
+    <p class="h-sub">Independent networks give organizations scale without the fixed costs of a traditional workforce — but distributed networks are hard to activate, manage and scale. Opportunities fall through the cracks, follow-up is inconsistent, and leadership has limited visibility into what's actually happening across the network. The result isn't necessarily a bad network — it's a network without an operating system for growth.</p>
+    <a class="more-link" href="paradigm-services.html">How We Help →</a>
+  </section>
+
+  <section class="alt">
+    <div class="eyebrow">Our Approach</div>
+    <h2 class="h-title">A System, Not Just a Strategy</h2>
+    <p class="h-sub">We help organizations build the infrastructure that turns network capacity into consistent commercial performance — across a repeatable cycle.</p>
+    <div class="flow-mini">
+      <div class="flow-node">Attract</div><div class="flow-arrow">→</div>
+      <div class="flow-node">Engage</div><div class="flow-arrow">→</div>
+      <div class="flow-node">Nurture</div><div class="flow-arrow">→</div>
+      <div class="flow-node">Convert</div><div class="flow-arrow">→</div>
+      <div class="flow-node">Deliver</div><div class="flow-arrow">→</div>
+      <div class="flow-node">Learn</div>
+    </div>
+    <a class="more-link" href="paradigm-approach.html">Explore Our Approach →</a>
+  </section>
+
+  <section>
+    <div class="eyebrow">What We Do</div>
+    <h2 class="h-title">Our Services</h2>
+    <p class="h-sub">Six capabilities that support one proposition: helping organizations turn distributed expertise into measurable growth.</p>
+    <div class="svc-grid">
+      <div class="svc-card"><div class="n">01</div><h3>Network Performance &amp; Risk Management</h3><p>Identify where value is being lost across the network.</p></div>
+      <div class="svc-card"><div class="n">02</div><h3>Pipeline &amp; Revenue Enablement</h3><p>Turn relationships into a repeatable commercial process.</p></div>
+      <div class="svc-card"><div class="n">03</div><h3>AI &amp; Automation</h3><p>Remove friction from network management workflows.</p></div>
+      <div class="svc-card"><div class="n">04</div><h3>Digital Growth &amp; Content Systems</h3><p>Make expertise easier to discover, understand and buy.</p></div>
+      <div class="svc-card"><div class="n">05</div><h3>Network Intelligence &amp; Analytics</h3><p>Turn network data into decisions leadership can act on.</p></div>
+      <div class="svc-card"><div class="n">06</div><h3>Digital Transformation &amp; Product Strategy</h3><p>Design and implement the platforms behind the network.</p></div>
+    </div>
+    <a class="more-link" href="paradigm-services.html">View All Services →</a>
+  </section>
+
+  <section class="alt">
+    <div class="eyebrow">Proof</div>
+    <h2 class="h-title">Selected Results</h2>
+    <div class="proof-wrap">
+      <div class="proof-grid">
+        <div class="proof-card"><span class="num">15+ yrs</span><span class="lbl">Digital strategy &amp; development experience</span></div>
+        <div class="proof-card"><span class="num">400+</span><span class="lbl">Merchants onboarded through Pronto Gambia</span></div>
+        <div class="proof-card"><span class="num">200+</span><span class="lbl">SMEs supported through UNDP's digital financial-services initiative</span></div>
+        <div class="proof-card"><span class="num">3×</span><span class="lbl">Maximum increase in client web traffic from digital campaigns</span></div>
+        <div class="proof-card"><span class="num">5d → &lt;1d</span><span class="lbl">Creative turnaround after implementing an AI content workflow</span></div>
+      </div>
+    </div>
+    <a class="more-link" href="paradigm-work.html">View Our Work →</a>
+  </section>
+
+  <section>
+    <div class="eyebrow">Who We Work With</div>
+    <h2 class="h-title">Built for Organizations With Distributed Networks</h2>
+    <div class="who-grid">
+      <div class="who-chip">Consulting &amp; Professional Networks</div>
+      <div class="who-chip">Development Organizations</div>
+      <div class="who-chip">Financial Services &amp; Fintech</div>
+      <div class="who-chip">Government &amp; Public Sector</div>
+      <div class="who-chip">Education &amp; Knowledge Organizations</div>
+      <div class="who-chip">Growth-Focused Businesses</div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="eyebrow">Why Paradigm</div>
+    <div class="why-box">
+      <p>We don't treat network performance as simply a people problem or a technology problem.</p>
+      <p class="strong">We treat it as a systems problem.</p>
+    </div>
+    <a class="more-link" href="paradigm-about.html">About Paradigm →</a>
+  </section>
+
+  <div class="final-cta">
+    <h2>Have a network that could perform better?</h2>
+    <p>Let's explore where the opportunities — and the leakage — are.</p>
+    <a class="btn gold" href="paradigm-contact.html">Talk to Paradigm</a>
+  </div>
+
+  <footer>PARADIGM — NETWORK PERFORMANCE &amp; DIGITAL GROWTH · pcorpnet.com</footer>
+</div>
+</body>
+</html>

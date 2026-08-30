@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Paradigm — Our Approach</title>
+<style>
+  :root{
+    --navy:#0B1E38; --navy-2:#122A4D; --gold:#C9A227; --gold-soft:#E8D28A;
+    --ink:#0B1E38; --paper:#F7F5EF; --white:#FFFFFF; --muted:#5B6B85;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);}
+  .page{max-width:1080px;margin:0 auto;background:var(--white);}
+  a{color:inherit;text-decoration:none;}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 40px;background:var(--navy);flex-wrap:wrap;gap:10px;}
+  .nav .logo{display:flex;align-items:center;gap:9px;color:var(--white);font-weight:800;letter-spacing:1px;font-size:17px;}
+  .nav .logo img{height:34px;width:34px;object-fit:contain;display:block;}
+  .nav .logo span{color:var(--gold);}
+  .nav .links{display:flex;gap:16px;font-size:12px;color:#CBD5E8;font-weight:600;flex-wrap:wrap;}
+  .nav .links a.active{color:var(--gold-soft);}
+  .nav-cta{background:var(--gold);color:var(--navy)!important;font-weight:800;font-size:11.5px;padding:8px 16px;border-radius:999px;white-space:nowrap;}
+
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--white);padding:60px 56px 70px;text-align:center;position:relative;overflow:hidden;}
+  .hero::after{content:"";position:absolute;right:-90px;top:-90px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.2),transparent 70%);}
+  .hero .eyebrow{color:var(--gold);font-weight:800;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:12px;}
+  .hero h1{margin:0 0 16px;font-size:32px;}
+  .hero p{color:#D8E1F0;font-size:15px;max-width:660px;margin:0 auto;line-height:1.6;}
+
+  section{padding:50px 56px;}
+  section.alt{background:var(--paper);}
+  h2.h-title.center{font-size:24px;color:var(--navy);margin:0 0 8px;text-align:center;}
+  p.h-sub{color:var(--muted);font-size:14px;line-height:1.6;max-width:680px;margin:0 auto 30px;text-align:center;}
+
+  .cycle{display:flex;flex-direction:column;gap:0;max-width:640px;margin:0 auto;}
+  .cycle-step{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:16px 0;position:relative;}
+  .cycle-step .num-circle{width:48px;height:48px;border-radius:50%;background:var(--navy);color:var(--gold);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;}
+  .cycle-step h3{margin:0 0 6px;font-size:16px;color:var(--navy);}
+  .cycle-step p{margin:0;font-size:13.5px;color:#374357;line-height:1.55;}
+  .cycle-connector{width:2px;background:var(--gold-soft);height:20px;margin-left:23px;}
+  .cycle-loop{text-align:center;margin-top:10px;background:var(--navy);color:var(--gold-soft);border-radius:10px;padding:14px 20px;font-size:13px;font-weight:700;}
+
+  .compound-box{background:var(--navy);color:var(--white);border-radius:14px;padding:30px 34px;text-align:center;max-width:720px;margin:0 auto;}
+  .compound-box p{font-size:15px;line-height:1.6;color:#D8E1F0;margin:0 0 4px;}
+  .compound-box .assets{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:16px 0;}
+  .compound-box .assets span{background:rgba(255,255,255,.08);border-radius:999px;padding:6px 14px;font-size:12px;color:var(--gold-soft);font-weight:700;}
+
+  .final-cta{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--white);text-align:center;padding:54px 56px;}
+  .final-cta h2{font-size:22px;margin:0 0 10px;}
+  .final-cta p{color:#D8E1F0;font-size:13.5px;max-width:520px;margin:0 auto 20px;line-height:1.6;}
+  .btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:700;font-size:13.5px;background:var(--gold);color:var(--navy);}
+
+  footer{text-align:center;padding:22px;font-size:11px;color:var(--muted);background:var(--paper);}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="nav">
+    <div class="logo"><img src="assets/pcorp-logo-black-transparent.png" alt="PCORP logo" />PARADIGM<span>.</span></div>
+    <div class="links">
+      <a href="paradigm-home.html">Home</a>
+      <a href="paradigm-about.html">About</a>
+      <a href="paradigm-services.html">Services</a>
+      <a href="paradigm-solutions.html">Solutions</a>
+      <a class="active" href="paradigm-approach.html">Approach</a>
+      <a href="paradigm-work.html">Work</a>
+      <a href="paradigm-insights.html">Insights</a>
+    </div>
+    <a class="nav-cta" href="paradigm-contact.html">Talk to Paradigm</a>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">Our Approach</div>
+    <h1>The Paradigm Network Growth Flywheel</h1>
+    <p>This is one of Paradigm's core intellectual assets — the model underneath everything we build. Not a funnel that ends at a sale, but a cycle that compounds.</p>
+  </div>
+
+  <section>
+    <div class="cycle">
+      <div class="cycle-step"><div class="num-circle">1</div><div><h3>Attract</h3><p>Generate visibility and demand — giving the network the tools and content needed to be found.</p></div></div>
+      <div class="cycle-connector"></div>
+      <div class="cycle-step"><div class="num-circle">2</div><div><h3>Engage</h3><p>Capture and qualify opportunities — turning scattered interactions into structured leads.</p></div></div>
+      <div class="cycle-connector"></div>
+      <div class="cycle-step"><div class="num-circle">3</div><div><h3>Nurture</h3><p>Build relationships systematically, using content, CRM processes and AI-assisted workflows.</p></div></div>
+      <div class="cycle-connector"></div>
+      <div class="cycle-step"><div class="num-circle">4</div><div><h3>Convert</h3><p>Turn qualified opportunities into business — sales journeys, proposals and clear calls to action.</p></div></div>
+      <div class="cycle-connector"></div>
+      <div class="cycle-step"><div class="num-circle">5</div><div><h3>Deliver</h3><p>Create successful client outcomes — the work itself has to hold up, or nothing downstream compounds.</p></div></div>
+      <div class="cycle-connector"></div>
+      <div class="cycle-step"><div class="num-circle">6</div><div><h3>Learn</h3><p>Capture evidence, data and insight from what happened — what worked, what didn't, and why.</p></div></div>
+      <div class="cycle-connector"></div>
+      <div class="cycle-step"><div class="num-circle">7</div><div><h3>Amplify</h3><p>Turn results into content, referrals and new opportunities — proof becomes the next round of demand.</p></div></div>
+      <div class="cycle-loop">↻ Back to Attract — and the cycle compounds</div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <h2 class="h-title center">Why it doesn't stop at the sale</h2>
+    <p class="h-sub">The important insight is that the work doesn't stop when someone becomes a client.</p>
+    <div class="compound-box">
+      <p>Successful engagements generate assets that feed the next cycle of acquisition:</p>
+      <div class="assets">
+        <span>Case studies</span><span>Testimonials</span><span>Expertise</span><span>Content</span><span>Referrals</span><span>Repeat opportunities</span>
+      </div>
+      <p>We don't simply help your network find leads. We help turn network activity into a compounding growth system.</p>
+    </div>
+  </section>
+
+  <div class="final-cta">
+    <h2>See how this applies to your network.</h2>
+    <p>The flywheel is the model — the Services and Solutions pages show how we apply it in practice.</p>
+    <a class="btn" href="paradigm-services.html">See Our Services</a>
+  </div>
+
+  <footer>PARADIGM — NETWORK PERFORMANCE &amp; DIGITAL GROWTH · pcorpnet.com</footer>
+</div>
+</body>
+</html>

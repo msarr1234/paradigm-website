@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Paradigm — Work &amp; Results</title>
+<style>
+  :root{
+    --navy:#0B1E38; --navy-2:#122A4D; --gold:#C9A227; --gold-soft:#E8D28A;
+    --ink:#0B1E38; --paper:#F7F5EF; --white:#FFFFFF; --muted:#5B6B85;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);}
+  .page{max-width:1080px;margin:0 auto;background:var(--white);}
+  a{color:inherit;text-decoration:none;}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 40px;background:var(--navy);flex-wrap:wrap;gap:10px;}
+  .nav .logo{display:flex;align-items:center;gap:9px;color:var(--white);font-weight:800;letter-spacing:1px;font-size:17px;}
+  .nav .logo img{height:34px;width:34px;object-fit:contain;display:block;}
+  .nav .logo span{color:var(--gold);}
+  .nav .links{display:flex;gap:16px;font-size:12px;color:#CBD5E8;font-weight:600;flex-wrap:wrap;}
+  .nav .links a.active{color:var(--gold-soft);}
+  .nav-cta{background:var(--gold);color:var(--navy)!important;font-weight:800;font-size:11.5px;padding:8px 16px;border-radius:999px;white-space:nowrap;}
+
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--white);padding:60px 56px 70px;text-align:center;position:relative;overflow:hidden;}
+  .hero::after{content:"";position:absolute;right:-90px;top:-90px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.2),transparent 70%);}
+  .hero .eyebrow{color:var(--gold);font-weight:800;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:12px;}
+  .hero h1{margin:0 0 16px;font-size:32px;}
+  .hero p{color:#D8E1F0;font-size:15px;max-width:660px;margin:0 auto;line-height:1.6;}
+
+  section{padding:50px 56px;}
+  section.alt{background:var(--paper);}
+
+  .case{border:1.5px solid #E7E2D6;border-radius:14px;margin-bottom:18px;overflow:hidden;}
+  .case-head{background:var(--navy);color:var(--white);padding:20px 28px;}
+  .case-head .org{color:var(--gold);font-weight:800;font-size:11px;letter-spacing:2px;text-transform:uppercase;}
+  .case-head h3{margin:4px 0 0;font-size:18px;}
+  .case-body{padding:22px 28px;}
+  .case-stages{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:16px;}
+  .case-stage{background:var(--paper);border-radius:8px;padding:10px 8px;text-align:center;}
+  .case-stage .lbl{font-size:9.5px;font-weight:800;color:var(--gold);letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:4px;}
+  .case-stage .val{font-size:11px;color:#374357;line-height:1.4;display:block;}
+  .case-result{background:var(--paper);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:12px 16px;font-size:13px;font-weight:700;color:var(--navy);}
+
+  .final-cta{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--white);text-align:center;padding:54px 56px;}
+  .final-cta h2{font-size:22px;margin:0 0 10px;}
+  .final-cta p{color:#D8E1F0;font-size:13.5px;max-width:520px;margin:0 auto 20px;line-height:1.6;}
+  .btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:700;font-size:13.5px;background:var(--gold);color:var(--navy);}
+
+  footer{text-align:center;padding:22px;font-size:11px;color:var(--muted);background:var(--paper);}
+
+  @media (max-width:800px){ .case-stages{grid-template-columns:repeat(3,1fr);} }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="nav">
+    <div class="logo"><img src="assets/pcorp-logo-black-transparent.png" alt="PCORP logo" />PARADIGM<span>.</span></div>
+    <div class="links">
+      <a href="paradigm-home.html">Home</a>
+      <a href="paradigm-about.html">About</a>
+      <a href="paradigm-services.html">Services</a>
+      <a href="paradigm-solutions.html">Solutions</a>
+      <a href="paradigm-approach.html">Approach</a>
+      <a class="active" href="paradigm-work.html">Work</a>
+      <a href="paradigm-insights.html">Insights</a>
+    </div>
+    <a class="nav-cta" href="paradigm-contact.html">Talk to Paradigm</a>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">Work &amp; Results</div>
+    <h1>Proof, not just positioning.</h1>
+    <p>Paradigm isn't simply talking about transformation — here's what's actually been built, deployed and delivered.</p>
+  </div>
+
+  <section>
+    <div class="case">
+      <div class="case-head"><div class="org">UNDP</div><h3>Digital Financial Inclusion &amp; SME Digital Adoption</h3></div>
+      <div class="case-body">
+        <div class="case-stages">
+          <div class="case-stage"><span class="lbl">Challenge</span><span class="val">Low SME adoption of digital financial services</span></div>
+          <div class="case-stage"><span class="lbl">Intervention</span><span class="val">Digital-adoption strategy &amp; enablement</span></div>
+          <div class="case-stage"><span class="lbl">System</span><span class="val">Outreach, onboarding &amp; support workflows</span></div>
+          <div class="case-stage"><span class="lbl">Implementation</span><span class="val">Rolled out across participating SMEs</span></div>
+          <div class="case-stage"><span class="lbl">Result</span><span class="val">200+ SMEs supported</span></div>
+          <div class="case-stage"><span class="lbl">Lesson</span><span class="val">Adoption requires systems, not just access</span></div>
+        </div>
+        <div class="case-result">200+ SMEs supported through UNDP's digital financial-services initiative.</div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-head"><div class="org">World Bank</div><h3>Tourism Diversification &amp; Resilience Project (TDRP)</h3></div>
+      <div class="case-body">
+        <p style="font-size:13.5px;color:#374357;line-height:1.6;margin:0 0 14px;">Paradigm's e-commerce business was selected as a delivery partner in the World Bank's Tourism Diversification &amp; Resilience Project (TDRP) in The Gambia.</p>
+        <div class="case-result">Selected as the e-commerce delivery partner on a World Bank tourism-sector initiative.</div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-head"><div class="org">Pronto</div><h3>Digital Commerce &amp; Merchant Onboarding</h3></div>
+      <div class="case-body">
+        <div class="case-stages">
+          <div class="case-stage"><span class="lbl">Challenge</span><span class="val">Merchants lacked digital sales &amp; payment channels</span></div>
+          <div class="case-stage"><span class="lbl">Intervention</span><span class="val">Digital commerce platform &amp; onboarding process</span></div>
+          <div class="case-stage"><span class="lbl">System</span><span class="val">Merchant onboarding &amp; payments infrastructure</span></div>
+          <div class="case-stage"><span class="lbl">Implementation</span><span class="val">Rolled out across merchant base</span></div>
+          <div class="case-stage"><span class="lbl">Result</span><span class="val">400+ merchants onboarded</span></div>
+          <div class="case-stage"><span class="lbl">Lesson</span><span class="val">Payments infrastructure is the unlock for digital commerce</span></div>
+        </div>
+        <div class="case-result">400+ merchants onboarded through Pronto Gambia.</div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-head"><div class="org">Internal</div><h3>AI Content Workflow</h3></div>
+      <div class="case-body">
+        <p style="font-size:13.5px;color:#374357;line-height:1.6;margin:0 0 14px;">Designed and implemented an AI-assisted creative production workflow for Paradigm's own content operations.</p>
+        <div class="case-result">Reduced creative turnaround from 5 days to under 1 day.</div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-head"><div class="org">Digital Growth</div><h3>Client Digital Acquisition Campaigns</h3></div>
+      <div class="case-body">
+        <p style="font-size:13.5px;color:#374357;line-height:1.6;margin:0 0 14px;">Digital growth and campaign work across client engagements, focused on measurable traffic and acquisition outcomes.</p>
+        <div class="case-result">Up to 3× increase in client web traffic from digital campaigns.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="final-cta">
+    <h2>Want results like these for your network?</h2>
+    <p>Let's talk about what a Paradigm engagement would look like for your organization.</p>
+    <a class="btn" href="paradigm-contact.html">Talk to Paradigm</a>
+  </div>
+
+  <footer>PARADIGM — NETWORK PERFORMANCE &amp; DIGITAL GROWTH · pcorpnet.com</footer>
+</div>
+</body>
+</html>

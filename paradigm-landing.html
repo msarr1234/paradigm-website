@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Paradigm — Network Performance & Digital Growth</title>
+<style>
+  :root{
+    --navy:#0B1E38; --navy-2:#122A4D; --gold:#C9A227; --gold-soft:#E8D28A;
+    --ink:#0B1E38; --paper:#F7F5EF; --white:#FFFFFF; --muted:#5B6B85;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);}
+  .page{max-width:1040px;margin:0 auto;background:var(--white);}
+  a{color:inherit;text-decoration:none;}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:16px 56px;background:var(--navy);}
+  .nav .logo{display:flex;align-items:center;gap:10px;color:var(--white);font-weight:800;letter-spacing:1px;font-size:18px;}
+  .nav .logo img{height:38px;width:38px;object-fit:contain;display:block;}
+  .nav .logo span{color:var(--gold);}
+  .nav .links{display:flex;gap:26px;font-size:13px;color:#CBD5E8;font-weight:600;}
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--white);padding:80px 56px 90px;position:relative;overflow:hidden;text-align:center;}
+  .hero::after{content:"";position:absolute;right:-100px;top:-100px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.22),transparent 70%);}
+  .hero::before{content:"";position:absolute;left:-100px;bottom:-120px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.12),transparent 70%);}
+  .hero h1{margin:0 auto 22px;font-size:42px;line-height:1.15;max-width:760px;position:relative;}
+  .hero p.sub{color:#D8E1F0;font-size:17px;line-height:1.6;max-width:680px;margin:0 auto 34px;position:relative;}
+  .cta-row{display:flex;gap:16px;justify-content:center;position:relative;}
+  .btn{display:inline-block;padding:14px 28px;border-radius:8px;font-weight:700;font-size:14px;}
+  .btn.gold{background:var(--gold);color:var(--navy);}
+  .btn.outline{border:1.5px solid var(--gold-soft);color:var(--gold-soft);}
+  section{padding:70px 56px;}
+  section.tight{padding:56px 56px;}
+  h2.h-title{font-size:30px;color:var(--navy);margin:0 0 10px;text-align:center;}
+  p.h-sub{text-align:center;color:var(--muted);font-size:16px;max-width:640px;margin:0 auto 46px;line-height:1.55;}
+  .eyebrow{text-align:center;color:var(--gold);font-weight:800;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:12px;}
+
+  /* PROBLEM */
+  .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .problem-item{background:var(--paper);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:16px 20px;font-size:14.5px;color:#374357;line-height:1.5;}
+  .problem-footer{text-align:center;margin-top:36px;font-size:19px;color:var(--navy);font-weight:700;line-height:1.6;}
+  .problem-footer .sub{color:var(--gold);font-weight:800;}
+
+  /* FLYWHEEL */
+  .flywheel-wrap{background:var(--navy);border-radius:16px;padding:50px 40px;color:var(--white);}
+  .fly-ring{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px;}
+  .fly-step{text-align:center;position:relative;}
+  .fly-circle{width:64px;height:64px;border-radius:50%;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;margin:0 auto 10px;text-transform:uppercase;letter-spacing:.5px;}
+  .fly-step .lbl{font-size:12.5px;color:#CBD5E8;line-height:1.4;}
+  .fly-arrow{position:absolute;top:30px;right:-24px;color:var(--gold-soft);font-size:20px;}
+  .fly-note{background:rgba(255,255,255,.06);border-radius:10px;padding:18px 22px;font-size:13.5px;color:#D8E1F0;line-height:1.6;margin-top:10px;}
+  .fly-note b{color:var(--gold-soft);}
+
+  /* WHY PARADIGM */
+  .stack{display:flex;flex-direction:column;align-items:center;gap:6px;margin:30px 0;}
+  .stack-item{background:var(--paper);border:1.5px solid var(--gold-soft);border-radius:8px;padding:10px 26px;font-size:13.5px;font-weight:700;color:var(--navy);}
+  .stack-plus{color:var(--gold);font-weight:900;font-size:16px;}
+  .quote-callout{background:var(--paper);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:22px 28px;font-size:15px;color:var(--navy);line-height:1.6;}
+  .quote-callout .no{color:#9AA5B8;text-decoration:line-through;}
+  .quote-callout .yes{color:var(--navy);font-weight:700;}
+
+  /* PROOF */
+  .proof-wrap{background:var(--navy);border-radius:16px;padding:48px 40px;}
+  .proof-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:26px;}
+  .proof-card{text-align:center;}
+  .proof-card .num{color:var(--gold);font-size:26px;font-weight:800;display:block;}
+  .proof-card .lbl{color:#CBD5E8;font-size:11px;line-height:1.4;margin-top:6px;display:block;}
+  .proof-logos{text-align:center;color:var(--gold-soft);font-size:13px;font-weight:700;letter-spacing:1px;border-top:1px solid rgba(255,255,255,.15);padding-top:20px;}
+  .proof-line{text-align:center;color:var(--navy);font-size:16px;font-weight:600;max-width:680px;margin:34px auto 0;line-height:1.6;}
+
+  /* WHO WE SERVE */
+  .serve-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:30px;}
+  .serve-chip{background:var(--paper);border-radius:8px;padding:14px 10px;text-align:center;font-size:12.5px;font-weight:700;color:var(--navy);border-top:3px solid var(--gold);}
+  .distinction{background:var(--navy);color:var(--white);border-radius:12px;padding:28px 32px;text-align:center;}
+  .distinction .lbl{color:var(--gold);font-weight:800;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+  .distinction p{font-size:15px;line-height:1.6;color:#D8E1F0;margin:6px 0;}
+  .distinction strong{color:var(--white);}
+
+  /* FINAL CTA */
+  .final-cta{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--white);text-align:center;padding:70px 56px;}
+  .final-cta h2{font-size:30px;margin:0 0 14px;}
+  .final-cta p{color:#D8E1F0;font-size:15.5px;max-width:600px;margin:0 auto 30px;line-height:1.6;}
+
+  footer{text-align:center;padding:22px;font-size:11px;color:var(--muted);background:var(--paper);}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="nav">
+    <div class="logo"><img src="assets/pcorp-logo-white-transparent.png" alt="PCORP logo" />PARADIGM<span>.</span></div>
+    <div class="links"><a href="paradigm-services.html">Services</a><a href="#proof">Proof</a><a href="paradigm-about.html">About</a><a href="paradigm-contact.html">Contact</a></div>
+  </div>
+
+  <div class="hero">
+    <h1>Turn Your Independent Network Into a Growth Engine</h1>
+    <p class="sub">We help organizations improve the performance of independent consultants, contractors, agents and other distributed professional networks — by strengthening how they attract, engage, nurture and convert opportunities.</p>
+    <p class="sub" style="margin-top:-14px;">Paradigm combines growth strategy, AI automation, digital systems and network intelligence to reduce the commercial risk of relying on fragmented independent networks.</p>
+    <div class="cta-row">
+      <a class="btn gold" href="paradigm-services.html">Explore Our Services</a>
+      <a class="btn outline" href="paradigm-contact.html">Talk to Paradigm</a>
+    </div>
+  </div>
+
+  <section>
+    <div class="eyebrow">The Problem</div>
+    <h2 class="h-title">Your network may be your greatest growth asset —<br/>and your greatest source of leakage.</h2>
+    <p class="h-sub">Independent networks give organizations scale without the fixed costs of a traditional workforce. But distributed networks create predictable problems.</p>
+    <div class="problem-grid">
+      <div class="problem-item">Opportunities fall through the cracks.</div>
+      <div class="problem-item">Independent professionals struggle to generate consistent pipelines.</div>
+      <div class="problem-item">Leads aren't followed up systematically.</div>
+      <div class="problem-item">Marketing happens inconsistently.</div>
+      <div class="problem-item">High-performing members succeed while others remain inactive.</div>
+      <div class="problem-item">Organizations have limited visibility into network activity.</div>
+      <div class="problem-item">Valuable expertise remains commercially underutilized.</div>
+      <div class="problem-item">Management teams spend too much time coordinating rather than scaling.</div>
+    </div>
+    <div class="problem-footer">The result isn't necessarily a bad network.<br/><span class="sub">It's a network without an operating system for growth.</span></div>
+  </section>
+
+  <section class="tight" style="background:var(--paper);">
+    <div class="eyebrow">Our Solution</div>
+    <h2 class="h-title">We build the system around the network.</h2>
+    <p class="h-sub">Paradigm helps organizations create the infrastructure that enables independent professionals to perform more consistently — across four interconnected stages, plus a fifth that makes it compound.</p>
+    <div class="flywheel-wrap">
+      <div class="fly-ring">
+        <div class="fly-step"><div class="fly-circle">Attract</div><div class="lbl">Give your network the tools and content needed to generate visibility and opportunities.</div><div class="fly-arrow">→</div></div>
+        <div class="fly-step"><div class="fly-circle">Engage</div><div class="lbl">Capture prospects and turn scattered interactions into structured opportunities.</div><div class="fly-arrow">→</div></div>
+        <div class="fly-step"><div class="fly-circle">Nurture</div><div class="lbl">Use content, CRM processes and AI-assisted workflows to maintain relationships.</div><div class="fly-arrow">→</div></div>
+        <div class="fly-step"><div class="fly-circle">Convert</div><div class="lbl">Help independent professionals move qualified opportunities toward action.</div></div>
+      </div>
+      <div class="fly-note"><b>Then, LEARN:</b> use data from the network to identify what works, where opportunities are being lost, and where intervention will produce the greatest return. That closes the loop — the <b>Paradigm Network Growth Flywheel.</b></div>
+    </div>
+  </section>
+
+  <section id="flywheel">
+    <div class="eyebrow">The Flywheel</div>
+    <h2 class="h-title">Network Performance Flywheel</h2>
+    <p class="h-sub" style="font-weight:700;color:var(--navy);">Network → Visibility → Opportunities → Nurturing → Conversion → Delivery → Evidence → Visibility</p>
+    <p class="h-sub">The important insight is that the work doesn't stop when someone becomes a client. Successful engagements generate case studies, testimonials, expertise, content, referrals and repeat opportunities — assets that feed the next cycle of acquisition.</p>
+    <div class="problem-footer" style="margin-top:0;">We don't simply help your network find leads.<br/><span class="sub">We help turn network activity into a compounding growth system.</span></div>
+  </section>
+
+  <section class="tight" style="background:var(--paper);">
+    <div class="eyebrow">Why Paradigm</div>
+    <h2 class="h-title">Strategy is only valuable when it becomes a system.</h2>
+    <p class="h-sub">Paradigm sits at the intersection of five disciplines that are usually kept apart.</p>
+    <div class="stack">
+      <div class="stack-item">Digital Strategy</div>
+      <div class="stack-plus">+</div>
+      <div class="stack-item">AI &amp; Automation</div>
+      <div class="stack-plus">+</div>
+      <div class="stack-item">Commercial Growth</div>
+      <div class="stack-plus">+</div>
+      <div class="stack-item">Digital Commerce &amp; Payments</div>
+      <div class="stack-plus">+</div>
+      <div class="stack-item">Development &amp; Institutional Strategy</div>
+    </div>
+    <div class="quote-callout">
+      The website shouldn't say: <span class="no">"We do lots of things."</span><br/>
+      It should communicate: <span class="yes">"We understand how different systems interact — and we build the connections between them."</span>
+    </div>
+  </section>
+
+  <section id="proof">
+    <div class="eyebrow">Proof / Traction</div>
+    <h2 class="h-title">Experience that spans institutions, markets and technology</h2>
+    <div class="proof-wrap">
+      <div class="proof-grid">
+        <div class="proof-card"><span class="num">15+ yrs</span><span class="lbl">Digital strategy &amp; development experience</span></div>
+        <div class="proof-card"><span class="num">400+</span><span class="lbl">Merchants onboarded through Pronto Gambia</span></div>
+        <div class="proof-card"><span class="num">200+</span><span class="lbl">SMEs supported through UNDP's digital financial-services initiative</span></div>
+        <div class="proof-card"><span class="num">3×</span><span class="lbl">Maximum increase in client web traffic from digital campaigns</span></div>
+        <div class="proof-card"><span class="num">5d → &lt;1d</span><span class="lbl">Creative turnaround after implementing an AI content workflow</span></div>
+      </div>
+      <div class="proof-logos">WORLD BANK  ·  UNDP  ·  GOVERNMENT  ·  MSMEs</div>
+    </div>
+    <p class="proof-line">Our experience isn't limited to advising organizations about digital transformation. We have built, deployed and operated digital systems ourselves.</p>
+  </section>
+
+  <section class="tight" style="background:var(--paper);">
+    <div class="eyebrow">Who We Serve</div>
+    <h2 class="h-title">Built for organizations that depend on distributed talent</h2>
+    <p class="h-sub">Our primary clients are organizations whose growth depends on independent professionals, including:</p>
+    <div class="serve-grid">
+      <div class="serve-chip">Independent consultant networks</div>
+      <div class="serve-chip">Contractor networks</div>
+      <div class="serve-chip">Professional-services networks</div>
+      <div class="serve-chip">Sales and agent networks</div>
+      <div class="serve-chip">Specialist expert networks</div>
+      <div class="serve-chip">Training and education networks</div>
+      <div class="serve-chip">Development-sector consultant networks</div>
+      <div class="serve-chip">Organizations building distributed delivery models</div>
+    </div>
+    <div class="distinction">
+      <div class="lbl">Important Distinction</div>
+      <p>We are not primarily a marketing agency for individual consultants.</p>
+      <p><strong>We work with the organization behind the network.</strong></p>
+      <p>That is the scalable commercial proposition.</p>
+    </div>
+  </section>
+
+  <div class="final-cta" id="contact">
+    <h2>Your network already has the talent.</h2>
+    <p>Let's build the system that unlocks it. Tell us about your network, your growth objectives and where you believe performance is being lost.</p>
+    <a class="btn gold" href="paradigm-contact.html">Start a Conversation</a>
+  </div>
+
+  <footer>PARADIGM — NETWORK PERFORMANCE &amp; DIGITAL GROWTH · pcorpnet.com</footer>
+</div>
+</body>
+</html>

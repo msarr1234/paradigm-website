@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Contact Paradigm</title>
+<title>Contact Paradigm Consultancy</title>
 <style>
   :root{
     --navy:#0B1E38; --navy-2:#122A4D; --gold:#C9A227; --gold-soft:#E8D28A;
@@ -13,7 +13,7 @@
   .page{max-width:1080px;margin:0 auto;background:var(--white);}
   a{color:inherit;text-decoration:none;}
   .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 40px;background:var(--navy);flex-wrap:wrap;gap:10px;}
-  .nav .logo{display:flex;align-items:center;gap:9px;color:var(--white);font-weight:800;letter-spacing:1px;font-size:17px;}
+  .nav .logo{display:flex;align-items:center;gap:8px;color:var(--white);font-weight:800;letter-spacing:.4px;font-size:13.5px;}
   .nav .logo img{height:34px;width:34px;object-fit:contain;display:block;}
   .nav .logo span{color:var(--gold);}
   .nav .links{display:flex;gap:16px;font-size:12px;color:#CBD5E8;font-weight:600;flex-wrap:wrap;}
@@ -27,7 +27,7 @@
   .hero p{color:#D8E1F0;font-size:14.5px;max-width:600px;margin:0 auto;line-height:1.6;}
 
   section{padding:50px 56px;}
-  .contact-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:36px;}
+  .contact-grid{display:grid;grid-template-columns:1fr .6fr;gap:36px;}
 
   .form-card{background:var(--paper);border-radius:16px;padding:30px 32px;}
   .form-card h2{margin:0 0 4px;font-size:18px;color:var(--navy);}
@@ -41,11 +41,19 @@
   .field textarea{resize:vertical;min-height:80px;}
   .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   .radio-group{display:flex;flex-wrap:wrap;gap:8px;}
-  .radio-chip{background:var(--white);border:1.5px solid #DCD6C6;border-radius:999px;padding:7px 13px;font-size:12px;color:var(--navy);font-weight:600;}
+  .radio-chip{position:relative;}
+  .radio-chip input{position:absolute;opacity:0;width:1px;height:1px;}
+  .radio-chip span{display:inline-block;background:var(--white);border:1.5px solid #DCD6C6;border-radius:999px;padding:7px 13px;font-size:12px;color:var(--navy);font-weight:600;cursor:pointer;transition:all .15s;}
+  .radio-chip input:checked + span{background:var(--navy);border-color:var(--navy);color:var(--gold-soft);}
   .section-divider{font-size:11px;font-weight:800;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin:20px 0 10px;border-top:1px solid #E7E2D6;padding-top:16px;}
   .section-divider:first-of-type{border-top:none;padding-top:0;margin-top:0;}
   .submit-btn{width:100%;padding:13px;border:none;border-radius:8px;background:var(--gold);color:var(--navy);font-weight:800;font-size:14px;cursor:pointer;margin-top:6px;}
+  .submit-btn:disabled{opacity:.6;cursor:default;}
   .form-note{font-size:11px;color:var(--muted);text-align:center;margin-top:12px;}
+  .form-status{display:none;border-radius:8px;padding:12px 16px;font-size:13px;font-weight:600;margin-top:14px;text-align:center;}
+  .form-status.show{display:block;}
+  .form-status.ok{background:#E7F4EA;color:#1C6B34;}
+  .form-status.err{background:#FBE7E7;color:#A32424;}
 
   .info-col{display:flex;flex-direction:column;gap:18px;}
   .info-card{background:var(--navy);color:var(--white);border-radius:14px;padding:20px 22px;}
@@ -68,7 +76,7 @@
 <div class="page">
 
   <div class="nav">
-    <div class="logo"><img src="assets/pcorp-logo-black-transparent.png" alt="PCORP logo" />PARADIGM<span>.</span></div>
+    <div class="logo"><img src="assets/pcorp-logo-black-transparent.png" alt="PCORP logo" />PARADIGM CONSULTANCY<span>.</span></div>
     <div class="links">
       <a href="paradigm-home.html">Home</a>
       <a href="paradigm-about.html">About</a>
@@ -78,7 +86,7 @@
       <a href="paradigm-work.html">Work</a>
       <a href="paradigm-insights.html">Insights</a>
     </div>
-    <a class="nav-cta active" href="paradigm-contact.html">Talk to Paradigm</a>
+    <a class="nav-cta active" href="paradigm-contact.html">Talk to Paradigm Consultancy</a>
   </div>
 
   <div class="hero">
@@ -91,33 +99,34 @@
     <div class="contact-grid">
       <div class="form-card">
         <h2>Tell Us About Your Organization</h2>
-        <p class="lede">This gives us useful context before the first conversation.</p>
-        <form>
+        <p class="lede">This gives us useful context before the first conversation. This form is the only way to reach us for now — we read every submission.</p>
+        <form id="contact-form">
           <div class="section-divider">Your Details</div>
           <div class="field-row">
-            <div class="field"><label for="name">Full Name</label><input id="name" type="text" placeholder="Jane Doe" /></div>
-            <div class="field"><label for="email">Email</label><input id="email" type="email" placeholder="you@organization.com" /></div>
+            <div class="field"><label for="name">Full Name</label><input id="name" name="name" type="text" placeholder="Jane Doe" required /></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@organization.com" required /></div>
           </div>
           <div class="field-row">
-            <div class="field"><label for="org">Organization</label><input id="org" type="text" placeholder="Your organization" /></div>
-            <div class="field"><label for="industry">Industry</label><input id="industry" type="text" placeholder="e.g. Development, Fintech, Education" /></div>
+            <div class="field"><label for="org">Organization</label><input id="org" name="organization" type="text" placeholder="Your organization" /></div>
+            <div class="field"><label for="industry">Industry</label><input id="industry" name="industry" type="text" placeholder="e.g. Development, Fintech, Education" /></div>
           </div>
 
           <div class="section-divider">Your Network</div>
           <div class="field">
             <label for="network-type">Network Type</label>
-            <select id="network-type">
+            <select id="network-type" name="networkType">
               <option>Independent consultants</option>
               <option>Contractors</option>
               <option>Agents</option>
               <option>Sales network</option>
               <option>Professional network</option>
+              <option>Absentee / non-operating owner</option>
               <option>Other</option>
             </select>
           </div>
           <div class="field">
             <label for="network-size">Approximate Network Size</label>
-            <select id="network-size">
+            <select id="network-size" name="networkSize">
               <option>Fewer than 25</option>
               <option>25 – 100</option>
               <option>100 – 500</option>
@@ -129,38 +138,29 @@
           <div class="field">
             <label>Primary Challenge</label>
             <div class="radio-group">
-              <span class="radio-chip">Finding opportunities</span>
-              <span class="radio-chip">Network activation</span>
-              <span class="radio-chip">Lead generation</span>
-              <span class="radio-chip">Lead nurturing</span>
-              <span class="radio-chip">Conversion</span>
-              <span class="radio-chip">Performance visibility</span>
-              <span class="radio-chip">Automation</span>
-              <span class="radio-chip">Digital transformation</span>
-              <span class="radio-chip">Other</span>
+              <label class="radio-chip"><input type="radio" name="primaryChallenge" value="Finding opportunities" checked /><span>Finding opportunities</span></label>
+              <label class="radio-chip"><input type="radio" name="primaryChallenge" value="Network activation" /><span>Network activation</span></label>
+              <label class="radio-chip"><input type="radio" name="primaryChallenge" value="Lead generation" /><span>Lead generation</span></label>
+              <label class="radio-chip"><input type="radio" name="primaryChallenge" value="Lead nurturing" /><span>Lead nurturing</span></label>
+              <label class="radio-chip"><input type="radio" name="primaryChallenge" value="Conversion" /><span>Conversion</span></label>
+              <label class="radio-chip"><input type="radio" name="primaryChallenge" value="Performance visibility" /><span>Performance visibility</span></label>
+              <label class="radio-chip"><input type="radio" name="primaryChallenge" value="Automation" /><span>Automation</span></label>
+              <label class="radio-chip"><input type="radio" name="primaryChallenge" value="Digital transformation" /><span>Digital transformation</span></label>
+              <label class="radio-chip"><input type="radio" name="primaryChallenge" value="Other" /><span>Other</span></label>
             </div>
           </div>
           <div class="field">
             <label for="message">What are you trying to improve?</label>
-            <textarea id="message" placeholder="Tell us briefly about your network and where you see the biggest opportunity for improvement..."></textarea>
+            <textarea id="message" name="message" placeholder="Tell us briefly about your network and where you see the biggest opportunity for improvement..."></textarea>
           </div>
 
-          <button type="submit" class="submit-btn">Submit →</button>
+          <button type="submit" class="submit-btn" id="submit-btn">Submit →</button>
           <div class="form-note">We typically respond within 1–2 business days.</div>
+          <div class="form-status" id="form-status"></div>
         </form>
       </div>
 
       <div class="info-col">
-        <div class="info-card">
-          <div class="lbl">Email</div>
-          <div class="val"><a href="mailto:msarr@pcorpnet.com">msarr@pcorpnet.com</a></div>
-          <div class="sub">Best for detailed enquiries and proposals.</div>
-        </div>
-        <div class="info-card">
-          <div class="lbl">Web</div>
-          <div class="val"><a href="https://pcorpnet.com">pcorpnet.com</a></div>
-          <div class="sub">Learn more about Paradigm's approach and services.</div>
-        </div>
         <div class="info-card">
           <div class="lbl">Engagement Model</div>
           <div class="val">Diagnose → Build → Optimize</div>
@@ -175,9 +175,47 @@
     </div>
   </section>
 
-  <div class="final-note">Prefer to talk first? Email us directly and we'll set up a short call to discuss your network, your growth objectives, and where Paradigm can help.</div>
+  <div class="final-note">The form above is the only way to reach Paradigm Consultancy for now — submit it and we'll follow up to set up a conversation about your network.</div>
 
-  <footer>PARADIGM — NETWORK PERFORMANCE &amp; DIGITAL GROWTH · pcorpnet.com</footer>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var form = e.target;
+      var btn = document.getElementById('submit-btn');
+      var status = document.getElementById('form-status');
+      var data = {
+        name: form.name.value,
+        email: form.email.value,
+        organization: form.organization.value,
+        industry: form.industry.value,
+        networkType: form.networkType.value,
+        networkSize: form.networkSize.value,
+        primaryChallenge: (form.primaryChallenge.value) || '',
+        message: form.message.value
+      };
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      status.className = 'form-status';
+      fetch('https://hooks.zapier.com/hooks/catch/19908697/a65504fdda0d44fba5c59124c1a23faa/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function () {
+        status.textContent = "Thanks — your message has been sent. We'll be in touch within 1–2 business days.";
+        status.className = 'form-status show ok';
+        form.reset();
+        btn.textContent = 'Submit →';
+        btn.disabled = false;
+      }).catch(function () {
+        status.textContent = "Something went wrong sending your message. Please try again in a moment.";
+        status.className = 'form-status show err';
+        btn.textContent = 'Submit →';
+        btn.disabled = false;
+      });
+    });
+  </script>
+
+  <footer>PARADIGM CONSULTANCY — NETWORK PERFORMANCE &amp; DIGITAL GROWTH · pcorpnet.com</footer>
 </div>
 </body>
 </html>

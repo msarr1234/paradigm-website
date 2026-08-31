@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Paradigm — Network Performance & Digital Growth</title>
+<title>Paradigm Consultancy — Network Performance & Digital Growth</title>
 <style>
   :root{
     --navy:#0B1E38; --navy-2:#122A4D; --gold:#C9A227; --gold-soft:#E8D28A;
@@ -13,22 +13,62 @@
   .page{max-width:1080px;margin:0 auto;background:var(--white);}
   a{color:inherit;text-decoration:none;}
   .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 40px;background:var(--navy);flex-wrap:wrap;gap:10px;}
-  .nav .logo{display:flex;align-items:center;gap:9px;color:var(--white);font-weight:800;letter-spacing:1px;font-size:17px;}
+  .nav .logo{display:flex;align-items:center;gap:8px;color:var(--white);font-weight:800;letter-spacing:.4px;font-size:13.5px;}
   .nav .logo img{height:34px;width:34px;object-fit:contain;display:block;}
   .nav .logo span{color:var(--gold);}
   .nav .links{display:flex;gap:16px;font-size:12px;color:#CBD5E8;font-weight:600;flex-wrap:wrap;}
   .nav .links a.active{color:var(--gold-soft);}
   .nav-cta{background:var(--gold);color:var(--navy)!important;font-weight:800;font-size:11.5px;padding:8px 16px;border-radius:999px;white-space:nowrap;}
 
-  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--white);padding:76px 56px 86px;position:relative;overflow:hidden;text-align:center;}
-  .hero::after{content:"";position:absolute;right:-100px;top:-100px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.22),transparent 70%);}
-  .hero::before{content:"";position:absolute;left:-100px;bottom:-120px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.12),transparent 70%);}
-  .hero h1{margin:0 auto 20px;font-size:40px;line-height:1.15;max-width:760px;position:relative;}
-  .hero p.sub{color:#D8E1F0;font-size:16.5px;line-height:1.6;max-width:660px;margin:0 auto 30px;position:relative;}
-  .cta-row{display:flex;gap:16px;justify-content:center;position:relative;}
+  .hero{background:radial-gradient(ellipse at 70% 30%, #1a3358 0%, var(--navy) 55%, #08152a 100%);color:var(--white);padding:60px 56px;position:relative;overflow:hidden;}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:center;position:relative;z-index:2;}
+  .hero-copy{text-align:left;}
+  .hero h1{margin:0 0 18px;font-size:37px;line-height:1.16;position:relative;}
+  .hero p.sub{color:#D8E1F0;font-size:15.5px;line-height:1.6;max-width:520px;margin:0 0 28px;position:relative;}
+  .cta-row{display:flex;gap:16px;position:relative;flex-wrap:wrap;}
   .btn{display:inline-block;padding:13px 26px;border-radius:8px;font-weight:700;font-size:14px;}
   .btn.gold{background:var(--gold);color:var(--navy);}
   .btn.outline{border:1.5px solid var(--gold-soft);color:var(--gold-soft);}
+
+  /* --- animated network hero graphic --- */
+  .hero-graphic{position:relative;height:380px;display:flex;align-items:center;justify-content:center;}
+  .hero-halo{position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle, rgba(201,162,39,.35), transparent 70%);filter:blur(2px);animation:halo-breathe 5s ease-in-out infinite;}
+  .hero-graphic svg{width:380px;height:380px;position:relative;z-index:2;overflow:visible;}
+  .orbit-group{transform-box:fill-box;transform-origin:center;animation:orbit-spin 50s linear infinite;}
+  .link-path{fill:none;stroke:url(#linkGradient);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:6 10;opacity:.85;animation:flow-dash 3.2s linear infinite;}
+  .link-path.d2{animation-delay:-.5s;}
+  .link-path.d3{animation-delay:-1s;}
+  .link-path.d4{animation-delay:-1.5s;}
+  .link-path.d5{animation-delay:-2s;}
+  .link-path.d6{animation-delay:-2.5s;}
+  .node-ring{fill:rgba(11,30,56,.85);stroke:var(--gold-soft);stroke-width:1.4;transform-box:fill-box;transform-origin:center;animation:node-pulse 4s ease-in-out infinite;}
+  .node-grid{fill:none;stroke:rgba(232,210,138,.55);stroke-width:.7;}
+  .node2 .node-ring, .node2 .node-grid{animation-delay:-.6s;}
+  .node3 .node-ring, .node3 .node-grid{animation-delay:-1.2s;}
+  .node4 .node-ring, .node4 .node-grid{animation-delay:-1.8s;}
+  .node5 .node-ring, .node5 .node-grid{animation-delay:-2.4s;}
+  .node6 .node-ring, .node6 .node-grid{animation-delay:-3s;}
+  .core-glow{fill:var(--gold);opacity:.28;transform-box:fill-box;transform-origin:center;animation:core-breathe 3.4s ease-in-out infinite;}
+  .core-circle{fill:url(#coreGradient);}
+  .core-label{fill:var(--navy);font-size:11px;font-weight:800;text-anchor:middle;dominant-baseline:middle;letter-spacing:.5px;}
+  .particle{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--gold-soft);opacity:.7;animation:particle-float 6s ease-in-out infinite;}
+
+  @keyframes orbit-spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+  @keyframes flow-dash{ to{ stroke-dashoffset:-160; } }
+  @keyframes node-pulse{ 0%,100%{ opacity:.85; } 50%{ opacity:1; } }
+  @keyframes core-breathe{ 0%,100%{ transform:scale(1); opacity:.22; } 50%{ transform:scale(1.22); opacity:.4; } }
+  @keyframes halo-breathe{ 0%,100%{ transform:scale(1); opacity:.6; } 50%{ transform:scale(1.12); opacity:.95; } }
+  @keyframes particle-float{ 0%,100%{ transform:translateY(0) translateX(0); opacity:.3; } 50%{ transform:translateY(-14px) translateX(6px); opacity:.9; } }
+
+  @media (max-width:760px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-copy{text-align:center;}
+    .hero p.sub{margin:0 auto 28px;}
+    .cta-row{justify-content:center;}
+    .hero-graphic{height:280px;}
+    .hero-graphic svg{width:260px;height:260px;}
+    .hero-halo{width:240px;height:240px;}
+  }
 
   section{padding:60px 56px;}
   section.alt{background:var(--paper);}
@@ -72,7 +112,7 @@
 <div class="page">
 
   <div class="nav">
-    <div class="logo"><img src="assets/pcorp-logo-black-transparent.png" alt="PCORP logo" />PARADIGM<span>.</span></div>
+    <div class="logo"><img src="assets/pcorp-logo-black-transparent.png" alt="PCORP logo" />PARADIGM CONSULTANCY<span>.</span></div>
     <div class="links">
       <a class="active" href="paradigm-home.html">Home</a>
       <a href="paradigm-about.html">About</a>
@@ -82,15 +122,57 @@
       <a href="paradigm-work.html">Work</a>
       <a href="paradigm-insights.html">Insights</a>
     </div>
-    <a class="nav-cta" href="paradigm-contact.html">Talk to Paradigm</a>
+    <a class="nav-cta" href="paradigm-contact.html">Talk to Paradigm Consultancy</a>
   </div>
 
   <div class="hero">
-    <h1>Turn Your Independent Network Into a Growth Engine</h1>
-    <p class="sub">Paradigm helps organizations improve the performance of independent consultants, contractors, agents and other distributed professional networks through digital growth, AI-enabled systems and network intelligence.</p>
-    <div class="cta-row">
-      <a class="btn gold" href="paradigm-services.html">Explore Our Services</a>
-      <a class="btn outline" href="paradigm-contact.html">Talk to Paradigm</a>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1>Turn Your Independent Network Into a Digital Growth Engine</h1>
+        <p class="sub">Paradigm Consultancy helps organizations improve the performance of independent consultants, contractors, agents and other distributed professional networks through digital growth, AI-enabled systems and network intelligence.</p>
+        <div class="cta-row">
+          <a class="btn gold" href="paradigm-services.html">Explore Our Services</a>
+          <a class="btn outline" href="paradigm-contact.html">Talk to Paradigm Consultancy</a>
+        </div>
+      </div>
+      <div class="hero-graphic" role="img" aria-label="Animated diagram of a central growth hub connected to six distributed network nodes, symbolizing Paradigm Consultancy's network intelligence.">
+        <div class="hero-halo"></div>
+        <div class="particle" style="top:8%;left:15%;animation-delay:-1s;"></div>
+        <div class="particle" style="top:70%;left:12%;animation-delay:-3s;"></div>
+        <div class="particle" style="top:20%;left:85%;animation-delay:-2s;"></div>
+        <div class="particle" style="top:80%;left:82%;animation-delay:-4.5s;"></div>
+        <svg viewBox="0 0 400 400">
+          <defs>
+            <linearGradient id="linkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#E8D28A"/>
+              <stop offset="100%" stop-color="#C9A227"/>
+            </linearGradient>
+            <radialGradient id="coreGradient" cx="50%" cy="50%" r="60%">
+              <stop offset="0%" stop-color="#E8D28A"/>
+              <stop offset="100%" stop-color="#C9A227"/>
+            </radialGradient>
+          </defs>
+          <g class="orbit-group">
+            <path class="link-path d1" d="M200,200 L350,200"/>
+            <path class="link-path d2" d="M200,200 L275,330"/>
+            <path class="link-path d3" d="M200,200 L125,330"/>
+            <path class="link-path d4" d="M200,200 L50,200"/>
+            <path class="link-path d5" d="M200,200 L125,70"/>
+            <path class="link-path d6" d="M200,200 L275,70"/>
+
+            <g class="node1" transform="translate(350,200)"><circle class="node-ring" r="20"/><circle class="node-grid" r="12"/><circle class="node-grid" r="6"/></g>
+            <g class="node2" transform="translate(275,330)"><circle class="node-ring" r="20"/><circle class="node-grid" r="12"/><circle class="node-grid" r="6"/></g>
+            <g class="node3" transform="translate(125,330)"><circle class="node-ring" r="20"/><circle class="node-grid" r="12"/><circle class="node-grid" r="6"/></g>
+            <g class="node4" transform="translate(50,200)"><circle class="node-ring" r="20"/><circle class="node-grid" r="12"/><circle class="node-grid" r="6"/></g>
+            <g class="node5" transform="translate(125,70)"><circle class="node-ring" r="20"/><circle class="node-grid" r="12"/><circle class="node-grid" r="6"/></g>
+            <g class="node6" transform="translate(275,70)"><circle class="node-ring" r="20"/><circle class="node-grid" r="12"/><circle class="node-grid" r="6"/></g>
+          </g>
+          <circle class="core-glow" cx="200" cy="200" r="48"/>
+          <circle class="core-circle" cx="200" cy="200" r="38"/>
+          <text class="core-label" x="200" y="196">PARADIGM</text>
+          <text class="core-label" x="200" y="210" style="font-size:8.5px;letter-spacing:1.5px;">CONSULTANCY</text>
+        </svg>
+      </div>
     </div>
   </div>
 
@@ -156,25 +238,26 @@
       <div class="who-chip">Government &amp; Public Sector</div>
       <div class="who-chip">Education &amp; Knowledge Organizations</div>
       <div class="who-chip">Growth-Focused Businesses</div>
+      <div class="who-chip">Absentee &amp; Non-Operating Owners</div>
     </div>
   </section>
 
   <section class="alt">
-    <div class="eyebrow">Why Paradigm</div>
+    <div class="eyebrow">Why Paradigm Consultancy</div>
     <div class="why-box">
       <p>We don't treat network performance as simply a people problem or a technology problem.</p>
       <p class="strong">We treat it as a systems problem.</p>
     </div>
-    <a class="more-link" href="paradigm-about.html">About Paradigm →</a>
+    <a class="more-link" href="paradigm-about.html">About Paradigm Consultancy →</a>
   </section>
 
   <div class="final-cta">
     <h2>Have a network that could perform better?</h2>
     <p>Let's explore where the opportunities — and the leakage — are.</p>
-    <a class="btn gold" href="paradigm-contact.html">Talk to Paradigm</a>
+    <a class="btn gold" href="paradigm-contact.html">Talk to Paradigm Consultancy</a>
   </div>
 
-  <footer>PARADIGM — NETWORK PERFORMANCE &amp; DIGITAL GROWTH · pcorpnet.com</footer>
+  <footer>PARADIGM CONSULTANCY — NETWORK PERFORMANCE &amp; DIGITAL GROWTH · pcorpnet.com</footer>
 </div>
 </body>
 </html>

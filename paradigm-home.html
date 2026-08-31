@@ -10,9 +10,11 @@
   }
   *{box-sizing:border-box;}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink);}
-  .page{max-width:1080px;margin:0 auto;background:var(--white);}
+  .page{width:100%;background:var(--white);}
+  .inner{max-width:1220px;margin:0 auto;}
   a{color:inherit;text-decoration:none;}
-  .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 40px;background:var(--navy);flex-wrap:wrap;gap:10px;}
+  .nav{padding:14px 40px;background:var(--navy);}
+  .nav-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;width:100%;}
   .nav .logo{display:flex;align-items:center;gap:8px;color:var(--white);font-weight:800;letter-spacing:.4px;font-size:13.5px;}
   .nav .logo img{height:34px;width:34px;object-fit:contain;display:block;}
   .nav .logo span{color:var(--gold);}
@@ -82,17 +84,42 @@
   .flow-node{background:var(--navy);color:var(--gold-soft);padding:8px 16px;border-radius:999px;font-size:12.5px;font-weight:700;}
   .flow-arrow{align-self:center;color:var(--gold);font-weight:900;}
 
+  /* --- Our Approach: prominent spotlight card --- */
+  .approach-card{background:linear-gradient(135deg,var(--navy) 0%, var(--navy-2) 100%);padding:56px 56px;border-top:5px solid var(--gold);box-shadow:0 30px 60px -30px rgba(11,30,56,.55);margin:0 -56px;}
+  .approach-card .eyebrow{color:var(--gold-soft);}
+  .approach-card .h-title{color:var(--white);font-size:32px;}
+  .approach-card .h-sub{color:#CBD5E8;}
+  .flow-rich{display:flex;justify-content:center;align-items:stretch;gap:6px;flex-wrap:wrap;margin:36px 0 14px;}
+  .flow-step{background:rgba(255,255,255,.07);border:1px solid rgba(232,210,138,.28);border-radius:14px;padding:20px 16px;width:158px;text-align:center;transition:background .2s;}
+  .flow-step .step-num{width:26px;height:26px;line-height:26px;border-radius:50%;background:var(--gold);color:var(--navy);font-weight:800;font-size:12px;margin:0 auto 10px;}
+  .flow-step .step-name{color:var(--white);font-weight:800;font-size:15px;margin-bottom:8px;letter-spacing:.2px;}
+  .flow-step .step-desc{color:#AEBBD4;font-size:11.5px;line-height:1.45;}
+  .flow-arrow-lg{align-self:center;color:var(--gold);font-weight:900;font-size:20px;padding:0 2px;}
+  .more-link-light{color:var(--gold-soft)!important;}
+  .more-link-light:hover{color:var(--white)!important;}
+  @media (max-width:900px){
+    .flow-arrow-lg{display:none;}
+    .flow-step{width:calc(50% - 6px);}
+    .approach-card{padding:40px 22px;}
+  }
+
   .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
   .svc-card{background:var(--white);border:1.5px solid #E7E2D6;border-radius:12px;padding:20px 18px;}
   .svc-card .n{color:var(--gold);font-weight:800;font-size:11px;letter-spacing:1.5px;}
   .svc-card h3{font-size:15px;margin:6px 0 8px;color:var(--navy);}
   .svc-card p{font-size:12.5px;color:var(--muted);line-height:1.5;margin:0;}
 
-  .proof-wrap{background:var(--navy);border-radius:16px;padding:40px 34px;}
-  .proof-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
-  .proof-card{text-align:center;}
-  .proof-card .num{color:var(--gold);font-size:24px;font-weight:800;display:block;}
-  .proof-card .lbl{color:#CBD5E8;font-size:10.5px;line-height:1.4;margin-top:6px;display:block;}
+  .proof-wrap{background:linear-gradient(135deg,var(--navy) 0%, var(--navy-2) 100%);padding:56px 56px;border-top:5px solid var(--gold);box-shadow:0 30px 60px -30px rgba(11,30,56,.55);margin:0 -56px;}
+  .proof-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+  .proof-card{text-align:center;padding:0 8px;border-left:1px solid rgba(232,210,138,.18);}
+  .proof-card:first-child{border-left:none;}
+  .proof-card .num{color:var(--gold-soft);font-size:40px;font-weight:800;display:block;letter-spacing:-.5px;line-height:1.05;}
+  .proof-card .lbl{color:#CBD5E8;font-size:11.5px;line-height:1.45;margin-top:12px;display:block;}
+  .kpi-title{font-size:32px;}
+  @media (max-width:900px){
+    .proof-grid{grid-template-columns:repeat(2,1fr);gap:26px;}
+    .proof-card{border-left:none;}
+  }
 
   .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
   .who-chip{background:var(--white);border-top:3px solid var(--gold);border-radius:8px;padding:16px 12px;text-align:center;font-size:12.5px;font-weight:700;color:var(--navy);}
@@ -112,17 +139,19 @@
 <div class="page">
 
   <div class="nav">
-    <div class="logo"><img src="assets/pcorp-logo-black-transparent.png" alt="PCORP logo" />PARADIGM CONSULTANCY<span>.</span></div>
-    <div class="links">
-      <a class="active" href="paradigm-home.html">Home</a>
-      <a href="paradigm-about.html">About</a>
-      <a href="paradigm-services.html">Services</a>
-      <a href="paradigm-solutions.html">Solutions</a>
-      <a href="paradigm-approach.html">Approach</a>
-      <a href="paradigm-work.html">Work</a>
-      <a href="paradigm-insights.html">Insights</a>
+    <div class="nav-inner">
+      <div class="logo"><img src="assets/pcorp-logo-black-transparent.png" alt="PCORP logo" />PARADIGM CONSULTANCY<span>.</span></div>
+      <div class="links">
+        <a class="active" href="paradigm-home.html">Home</a>
+        <a href="paradigm-about.html">About</a>
+        <a href="paradigm-services.html">Services</a>
+        <a href="paradigm-solutions.html">Solutions</a>
+        <a href="paradigm-approach.html">Approach</a>
+        <a href="paradigm-work.html">Work</a>
+        <a href="paradigm-insights.html">Insights</a>
+      </div>
+      <a class="nav-cta" href="paradigm-contact.html">Talk to Paradigm Consultancy</a>
     </div>
-    <a class="nav-cta" href="paradigm-contact.html">Talk to Paradigm Consultancy</a>
   </div>
 
   <div class="hero">
@@ -184,18 +213,25 @@
   </section>
 
   <section class="alt">
-    <div class="eyebrow">Our Approach</div>
-    <h2 class="h-title">A System, Not Just a Strategy</h2>
-    <p class="h-sub">We help organizations build the infrastructure that turns network capacity into consistent commercial performance — across a repeatable cycle.</p>
-    <div class="flow-mini">
-      <div class="flow-node">Attract</div><div class="flow-arrow">→</div>
-      <div class="flow-node">Engage</div><div class="flow-arrow">→</div>
-      <div class="flow-node">Nurture</div><div class="flow-arrow">→</div>
-      <div class="flow-node">Convert</div><div class="flow-arrow">→</div>
-      <div class="flow-node">Deliver</div><div class="flow-arrow">→</div>
-      <div class="flow-node">Learn</div>
+    <div class="approach-card">
+      <div class="eyebrow">Our Approach</div>
+      <h2 class="h-title">A System, Not Just a Strategy</h2>
+      <p class="h-sub">We help organizations build the infrastructure that turns network capacity into consistent commercial performance — across a repeatable cycle.</p>
+      <div class="flow-rich">
+        <div class="flow-step"><div class="step-num">1</div><div class="step-name">Attract</div><div class="step-desc">Bring the right opportunities into the network.</div></div>
+        <div class="flow-arrow-lg">→</div>
+        <div class="flow-step"><div class="step-num">2</div><div class="step-name">Engage</div><div class="step-desc">Activate the network around real opportunities.</div></div>
+        <div class="flow-arrow-lg">→</div>
+        <div class="flow-step"><div class="step-num">3</div><div class="step-name">Nurture</div><div class="step-desc">Keep relationships warm between transactions.</div></div>
+        <div class="flow-arrow-lg">→</div>
+        <div class="flow-step"><div class="step-num">4</div><div class="step-name">Convert</div><div class="step-desc">Turn interest into signed, committed business.</div></div>
+        <div class="flow-arrow-lg">→</div>
+        <div class="flow-step"><div class="step-num">5</div><div class="step-name">Deliver</div><div class="step-desc">Execute consistently once the deal is won.</div></div>
+        <div class="flow-arrow-lg">→</div>
+        <div class="flow-step"><div class="step-num">6</div><div class="step-name">Learn</div><div class="step-desc">Feed outcomes back in to improve the system.</div></div>
+      </div>
+      <a class="more-link more-link-light" href="paradigm-approach.html">Explore Our Approach →</a>
     </div>
-    <a class="more-link" href="paradigm-approach.html">Explore Our Approach →</a>
   </section>
 
   <section>
@@ -213,9 +249,10 @@
     <a class="more-link" href="paradigm-services.html">View All Services →</a>
   </section>
 
-  <section class="alt">
-    <div class="eyebrow">Proof</div>
-    <h2 class="h-title">Selected Results</h2>
+  <section>
+    <div class="eyebrow">Key Performance Indicators</div>
+    <h2 class="h-title kpi-title">Results That Matter</h2>
+    <p class="h-sub">The measurable track record behind Paradigm Consultancy's network performance work.</p>
     <div class="proof-wrap">
       <div class="proof-grid">
         <div class="proof-card"><span class="num">15+ yrs</span><span class="lbl">Digital strategy &amp; development experience</span></div>

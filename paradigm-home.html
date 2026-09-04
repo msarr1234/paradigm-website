@@ -123,6 +123,17 @@
   .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
   .who-chip{background:var(--white);border-top:3px solid var(--gold);border-radius:8px;padding:16px 12px;text-align:center;font-size:12.5px;font-weight:700;color:var(--navy);}
 
+  .audience-slider{margin-top:28px;background:var(--navy);border-radius:14px;padding:36px 30px;text-align:center;position:relative;overflow:hidden;}
+  .audience-slider .eyebrow-mini{color:var(--gold);font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 14px;}
+  .audience-slide{display:none;color:var(--white);font-size:18px;line-height:1.55;max-width:580px;margin:0 auto 22px;min-height:56px;}
+  .audience-slide.is-active{display:block;animation:audienceFade .5s ease;}
+  .audience-slide strong{color:var(--gold);}
+  @keyframes audienceFade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  .audience-dots{display:flex;justify-content:center;gap:7px;margin-bottom:20px;}
+  .audience-dot{width:7px;height:7px;border-radius:50%;background:#3B4A66;transition:background .3s;}
+  .audience-dot.is-active{background:var(--gold);}
+  .audience-cta{display:inline-block;}
+
   .why-box{background:var(--navy);color:var(--white);border-radius:14px;padding:34px 40px;text-align:center;max-width:720px;margin:0 auto;}
   .why-box p{font-size:16px;line-height:1.6;color:#D8E1F0;margin:0 0 6px;}
   .why-box p.strong{color:var(--white);font-weight:700;font-size:17px;}
@@ -276,6 +287,19 @@
       <div class="who-chip">Growth-Focused Businesses</div>
       <div class="who-chip">Absentee &amp; Non-Operating Owners</div>
     </div>
+
+    <div class="audience-slider" id="audienceSlider">
+      <div class="eyebrow-mini">And If You're Not an Organization?</div>
+      <div class="audience-slide is-active">Are you a <strong>Business</strong> looking for a more intentional digital marketing strategy?</div>
+      <div class="audience-slide">Are you a <strong>Creator</strong> looking for ways to grow your online presence?</div>
+      <div class="audience-slide">Are you a <strong>Civil Society Organization</strong> exploring how AI can help your work?</div>
+      <div class="audience-dots" id="audienceDots">
+        <span class="audience-dot is-active"></span>
+        <span class="audience-dot"></span>
+        <span class="audience-dot"></span>
+      </div>
+      <a class="btn gold audience-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfzGPqvFFzDeKoBZLpzvWT64iQUefVikLGtxIoylv_pYs28mQ/viewform" target="_blank" rel="noopener">Click here to get started →</a>
+    </div>
   </section>
 
   <section class="alt">
@@ -295,5 +319,20 @@
 
   <footer>PARADIGM CONSULTANCY — NETWORK PERFORMANCE &amp; DIGITAL GROWTH · pcorpnet.com</footer>
 </div>
+<script>
+(function(){
+  var slides = document.querySelectorAll('#audienceSlider .audience-slide');
+  var dots = document.querySelectorAll('#audienceDots .audience-dot');
+  if(!slides.length) return;
+  var i = 0;
+  setInterval(function(){
+    slides[i].classList.remove('is-active');
+    if(dots[i]) dots[i].classList.remove('is-active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('is-active');
+    if(dots[i]) dots[i].classList.add('is-active');
+  }, 3500);
+})();
+</script>
 </body>
 </html>
